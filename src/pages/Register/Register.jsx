@@ -19,8 +19,8 @@ const Register = () => {
       password: form.getFieldsValue()["password"],
       role:"user"
     };
-    axios.post("http://127.0.0.1:5001/register",user).then(()=>{
-        console.log("jgjyg")
+    axios.post("http://localhost:5001/api/users/register",user).then(()=>{
+        navigateLOgin()
     })
   };
   return (
