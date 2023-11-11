@@ -1,4 +1,4 @@
-import { Button, Col, Form, Row } from "antd";
+import { Button, Col, Form, Row, message } from "antd";
 import React, { useContext } from "react";
 import InputComponent from "../../components/InputComponent/InputComponent";
 import classes from "./Register.module.css";
@@ -16,7 +16,9 @@ const Register = () => {
     <Row style={{display:"flex",justifyContent:"center",marginTop:"5rem"}}>
     <h1>Register</h1>
   </Row>
-    <Form layout="vertical" className={classes.container} form={form}>
+    <Form layout="vertical" className={classes.container} form={form}  onFinishFailed={() => {
+              message.error("Veuillez vérifier tous les champs !");
+            }}>
      
 
       <Row style={{ width: "30%" }}>
@@ -79,7 +81,7 @@ const Register = () => {
           colxs={24}
         />
         <Col style={{display:"flex",justifyContent:"center",width:"100%"}}>
-        <Button className={classes.btn}>
+        <Button className={classes.btn} type="submit">
             Register
         </Button></Col>
       </Row>
