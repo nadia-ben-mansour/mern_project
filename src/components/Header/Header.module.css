@@ -1,0 +1,34 @@
+.headerContainer {
+  height: 15vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.headerLogo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 100%; */
+}
+.headerSteps {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* width: 100%; */
+}
+
+.logoStyle {
+  height: 70%;
+}
+
+@media (max-width: 991px) {
+  .headerSteps {
+  display: none;
+  
+  }
+  
+}
+
+
