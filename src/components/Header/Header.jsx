@@ -10,7 +10,6 @@ const Header = (props) => {
   const { steps, current } = props;
   const items = steps?.map((item) => ({ key: item.title, title: item.title }));
 
-
     return (
       <ConfigProvider
         theme={{

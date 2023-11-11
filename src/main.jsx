@@ -4,11 +4,18 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppContext from "./contexts/AppContext";
 // import NotFound from "./components/NotFound/NotFound";
 import Home from "./pages/Home/Home";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login"
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Register />,
+    // errorElement: <NotFound />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
     // errorElement: <NotFound />,
   },
   // {

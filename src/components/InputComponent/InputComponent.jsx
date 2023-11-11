@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Checkbox,
   Col,
@@ -10,10 +10,15 @@ import {
   Select,
   Space,
 } from "antd";
-
+import PhoneInput from "antd-phone-input";
 import dayjs from "dayjs";
 import classes from "./InputComponent.module.css";
+import CountryPhoneInput, { ConfigProvider } from "antd-country-phone-input";
+import tn from "world_countries_lists/data/countries/en/world.json";
+import GlobalContext from "../../contexts/GlobalContext";
 
+// import 'antd/dist/antd.css';
+// import 'antd-country-phone-input/dist/index.css';
 const { Search } = Input;
 
 const InputComponent = (props) => {
@@ -36,7 +41,6 @@ const InputComponent = (props) => {
     namePrefix,
     options,
     onBlur,
-    form,
     defaultValue,
     radioValues,
     disabledDate,
@@ -54,11 +58,9 @@ const InputComponent = (props) => {
     onchange,
     val,
   } = props;
-
+const {form}=useContext(GlobalContext)
   const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
-  const handlePrefixChange = () => {
-    form.validateFields([name]);
-  };
+
   const onSearchFunction = (e, name) => {
     onBlur(e, name, form);
   };
@@ -178,7 +180,9 @@ const InputComponent = (props) => {
           ]}
           label={<label className={className}>{label}</label>}
         >
-          <Space.Compact compact="true" style={{ display: "flex" }}>
+          <PhoneInput />
+
+          {/* <Space.Compact compact="true" style={{ display: "flex" }}>
             <Form.Item
               name={namePrefix}
               style={{ flex: 1 }}
@@ -214,7 +218,7 @@ const InputComponent = (props) => {
             >
               <Input addonAfter={addonAfter} />
             </Form.Item>
-          </Space.Compact>
+          </Space.Compact> */}
         </Form.Item>
       ) : inputType === "select" ? (
         <Form.Item
@@ -298,6 +302,27 @@ const InputComponent = (props) => {
               ))}
             </Row>
           </Checkbox.Group>
+        </Form.Item>
+      ) : type === "password" ? (
+        <Form.Item
+          name={name}
+          rules={[
+            {
+              required: required,
+              message: messageRemplissage,
+            },
+            name==="confirmPassword" && {
+              validator: async (_, value) => {
+                if (value && value !== form.getFieldsValue()["password"]) {
+                  return Promise.reject(new Error("Mot de passes ne sont pas identiques !"));
+                }
+                return Promise.resolve();
+              },
+            }
+          ]}
+          label={<label className={classes.labelStyle}>{label}</label>}
+        >
+          <Input type="password" />
         </Form.Item>
       ) : (
         <Form.Item
