@@ -17,4 +17,9 @@
     background-color: lightblue;
     color: white;
     font-weight: 600;
+    height: 3rem;
+    border-radius: 0.5rem;
+    border:none;
+    cursor: pointer;
+
 }

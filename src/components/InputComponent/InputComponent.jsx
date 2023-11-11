@@ -171,7 +171,7 @@ const {form}=useContext(GlobalContext)
         </div>
       ) : inputType === "phone" ? (
         <Form.Item
-          name="inputphone"
+          name={name}
           rules={[
             {
               required: required,
