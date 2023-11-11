@@ -10,10 +10,14 @@ import {
   Select,
   Space,
 } from "antd";
-
+import PhoneInput from "antd-phone-input";
 import dayjs from "dayjs";
 import classes from "./InputComponent.module.css";
+import CountryPhoneInput, { ConfigProvider } from 'antd-country-phone-input';
+import tn from 'world_countries_lists/data/countries/en/world.json';
 
+// import 'antd/dist/antd.css';
+// import 'antd-country-phone-input/dist/index.css';
 const { Search } = Input;
 
 const InputComponent = (props) => {
@@ -150,22 +154,8 @@ const InputComponent = (props) => {
               controls={controls}
               type={type}
               onChange={onchange}
-              style={{
-                backgroundColor:
-                  name === "dateEffet"
-                    ? "#F2FAFF"
-                    : name === "pays"
-                    ? "#F2F3F4"
-                    : "white",
-                border:
-                  name === "dateEffet"
-                    ? "2px solid #D2EEFF"
-                    : name === "pays"
-                    ? " 2px solid #E7E7E7"
-                    : "",
-                textAlign: name === "dateEffet" ? "center" : "start",
-                color: name === "dateEffet" ? "#000" : "#000",
-              }}
+             
+            
             />
           </Form.Item>
         </div>
@@ -180,7 +170,9 @@ const InputComponent = (props) => {
           ]}
           label={<label className={className}>{label}</label>}
         >
-          <Space.Compact compact="true" style={{ display: "flex" }}>
+    <PhoneInput/>
+
+          {/* <Space.Compact compact="true" style={{ display: "flex" }}>
             <Form.Item
               name={namePrefix}
               style={{ flex: 1 }}
@@ -216,7 +208,7 @@ const InputComponent = (props) => {
             >
               <Input addonAfter={addonAfter} />
             </Form.Item>
-          </Space.Compact>
+          </Space.Compact> */}
         </Form.Item>
       ) : inputType === "select" ? (
         <Form.Item
@@ -301,7 +293,24 @@ const InputComponent = (props) => {
             </Row>
           </Checkbox.Group>
         </Form.Item>
-      ) : (
+      ) : type==="password"?(
+        <Form.Item
+        name={name}
+        rules={[
+          {
+            required: required,
+            message: messageRemplissage,
+          },
+          {
+            pattern: pattern,
+            message: messageVerification,
+          }]}
+          label={<label className={classes.labelStyle}>{label}</label>}
+        >
+          <Input type="password" />
+        </Form.Item>
+      ):
+      (
         <Form.Item
           name={name}
           label={<label>{label}</label>}

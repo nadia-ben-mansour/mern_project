@@ -10,7 +10,6 @@ const Header = (props) => {
   const { steps, current } = props;
   const items = steps?.map((item) => ({ key: item.title, title: item.title }));
 
-  if (brandProperties) {
     return (
       <ConfigProvider
         theme={{
@@ -57,7 +56,7 @@ const Header = (props) => {
         </Row>
       </ConfigProvider>
     );
-  }
+  
 };
 
 export default Header;

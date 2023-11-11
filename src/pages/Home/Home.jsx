@@ -12,11 +12,11 @@ import {
 } from "antd";
 import Header from "../../components/Header/Header";
 import { ClearOutlined } from "@ant-design/icons";
-import InformationsSouscripteur from "../InformationsSouscripteur/InformationsSouscripteur";
-import Couvertures from "../Couvertures/Couvertures";
-import InformationsComplementaires from "../InformationsComplementaires/InformationsComplementaires";
-import Paiement from "../Paiement/Paiement";
-import Tarification from "../Tarification/Tarification";
+// import InformationsSouscripteur from "../InformationsSouscripteur/InformationsSouscripteur";
+// import Couvertures from "../Couvertures/Couvertures";
+// import InformationsComplementaires from "../InformationsComplementaires/InformationsComplementaires";
+// import Paiement from "../Paiement/Paiement";
+// import Tarification from "../Tarification/Tarification";
 import GlobalContext from "../../contexts/GlobalContext";
 import dayjs from "dayjs";
 
