@@ -12,3 +12,9 @@
     background-attachment: fixed; */
     
 }
+.btn{
+    width: 10rem;
+    background-color: lightblue;
+    color: white;
+    font-weight: 600;
+}

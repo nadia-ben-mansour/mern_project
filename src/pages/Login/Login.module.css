@@ -1,0 +1,20 @@
+.container{
+    /* height: 100vh; */
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    margin-top: 5rem;
+    
+    /* background-image: url("../../assets/assurance.png");
+     background-position: center; 
+    background-size: 70vw 50vh!important;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+    
+}
+.btn{
+    width: 10rem;
+    background-color: lightblue;
+    color: white;
+    font-weight: 600;
+}

@@ -1,23 +1,28 @@
-import { Form, Row } from "antd";
+import { Button, Col, Form, Row } from "antd";
 import React, { useContext } from "react";
 import InputComponent from "../../components/InputComponent/InputComponent";
 import classes from "./Register.module.css";
 import GlobalContext from "../../contexts/GlobalContext";
 import background from "../../assets/assurance.png";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
   const { form } = useContext(GlobalContext);
+  const navigate=useNavigate()
+  const navigateLOgin=()=>{
+    navigate("/login")
+  }
   return (
     <div>
     <Row style={{display:"flex",justifyContent:"center",marginTop:"5rem"}}>
     <h1>Register</h1>
   </Row>
-    <Form layout="vertical" className={classes.container}>
+    <Form layout="vertical" className={classes.container} form={form}>
      
 
       <Row style={{ width: "30%" }}>
         <img src={background} style={{ height: "100%", width: "100%" }} />
       </Row>
-      <Row gutter={24} style={{marginTop:"1.5rem"}}>
+      <Row gutter={24} style={{marginTop:"4rem"}}>
         <InputComponent
           name="souscripteur_email"
           required={true}
@@ -73,8 +78,16 @@ const Register = () => {
           colMd={12}
           colxs={24}
         />
+        <Col style={{display:"flex",justifyContent:"center",width:"100%"}}>
+        <Button className={classes.btn}>
+            Register
+        </Button></Col>
       </Row>
-    </Form></div>
+      
+    </Form>
+    <span style={{display:"flex",justifyContent:"center",marginTop:"5rem"}}>
+        vous-avez déja un compte? <span style={{textDecoration:"underline",marginLeft:"0.5rem",cursor:"pointer"}} onClick={navigateLOgin}>Login</span>
+      </span></div>
   );
 };
 
