@@ -1,14 +1,15 @@
 import React from "react";
 import classes from "./Header.module.css";
-import { Col, Row, Steps, ConfigProvider } from "antd";
+import { Col, Row, ConfigProvider } from "antd";
 import GlobalContext from "../../contexts/GlobalContext";
-const Header = (props) => {
+const Header = () => {
   const { brandProperties } = React.useContext(GlobalContext);
   // const [current, setCurrent] = React.useState(
+
   //   JSON.parse(sessionStorage.getItem('current')) || 2
   // );
-  const { steps, current } = props;
-  const items = steps?.map((item) => ({ key: item.title, title: item.title }));
+  // const { steps, current } = props;
+  // const items = steps?.map((item) => ({ key: item.title, title: item.title }));
 
   if (brandProperties) {
     return (
@@ -48,11 +49,11 @@ const Header = (props) => {
             />
           </Col>
           <Col lg={19} className={classes.headerSteps}>
-            <Steps
+            {/* <Steps
               current={current - 1}
               onKeyDown={(e) => (e.keyCode == 13 ? e.preventDefault() : "")}
               items={items}
-            />
+            /> */}
           </Col>
         </Row>
       </ConfigProvider>
