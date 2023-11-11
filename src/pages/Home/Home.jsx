@@ -13,26 +13,32 @@ import {
 import Header from "../../components/Header/Header";
 import { ClearOutlined } from "@ant-design/icons";
 import InformationsSouscripteur from "../InformationsSouscripteur/InformationsSouscripteur";
-import Couvertures from "../Couvertures/Couvertures";
-import InformationsComplementaires from "../InformationsComplementaires/InformationsComplementaires";
-import Paiement from "../Paiement/Paiement";
-import Tarification from "../Tarification/Tarification";
+
 import GlobalContext from "../../contexts/GlobalContext";
 import dayjs from "dayjs";
 
-
 function Home() {
   const {
-
+    brandProperties,
+    garantie,
+    setCouverturesErr,
     setGlobalData,
     globalData,
-   
+    setFile,
+    idOpp,
+    entreprise,
     current,
     setCurrent,
     form,
-
+    subscribeEnabled,
+    setSubscribeEnabled,
+    id,
+    userData,
+    partnership_id,
   } = useContext(GlobalContext);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoadingSouscription, setIsLoadingSousciption] = useState(false);
+  const [modalfail, setMOdalFail] = useState("");
 
   const [garantieOptions, setGarantieOptions] = useState(
     JSON.parse(sessionStorage.getItem("garantieOptions")) || {
@@ -66,34 +72,32 @@ function Home() {
     },
     {
       title: "Informations complémentaires",
-      content: (
-        <InformationsComplementaires
-          garantieOptions={garantieOptions}
-          setGarantieOptions={setGarantieOptions}
-        />
-      ),
+      content: ""
     },
     {
       title: "Garanties",
-      content: <Couvertures form={form} />,
+      content: "",
     },
 
     {
       title: "Tarification",
-      content: <Tarification form={form} />,
+      content: "",
     },
 
     {
       title: "Paiement",
-      content: <Paiement form={form} />,
+      content: "",
     },
   ];
   const items = steps.map((item) => ({ key: item.title, title: item.title }));
   const next = () => {
-  saveSession()
+
+      setCurrent(current + 1);
+      saveSession();
+  
   };
 
-  
+ 
   const prev = () => {
     setCurrent(current - 1);
   };
@@ -105,8 +109,9 @@ function Home() {
     sessionStorage.setItem("globalData", JSON.stringify(value));
     setGlobalData(value);
   };
-
-
+  useEffect(() => {
+    sessionStorage.setItem("garantieOptions", JSON.stringify(garantieOptions));
+  }, [garantieOptions]);
 
 
   useEffect(() => {
@@ -160,8 +165,8 @@ function Home() {
     sessionStorage.setItem("current", JSON.stringify(current));
   }, [current]);
 
-
-
+  
+ 
     return (
       <ConfigProvider
         theme={{
@@ -171,9 +176,9 @@ function Home() {
             fontFamily: "Work Sans",
           },
           components: {
-            // Radio: {
-            //   colorPrimary: brandProperties?.principalColor,
-            // },
+            Radio: {
+              colorPrimary: brandProperties?.principalColor,
+            },
 
             Input: {
               lineWidth: 2,
@@ -185,8 +190,8 @@ function Home() {
             },
 
             Steps: {
-            //   colorPrimary: brandProperties?.principalColor,
-            //   colorText: brandProperties?.principalColor,
+              colorPrimary: brandProperties?.principalColor,
+              colorText: brandProperties?.principalColor,
               controlItemBgActive: "rgb(223, 223, 223)",
               colorBorderSecondary: "rgb(223, 223, 223)",
               colorTextLabel: "rgb(255, 255, 255)",
@@ -221,10 +226,8 @@ function Home() {
         }}
       >
         <div>
-          {/* {isLoadingSouscription && <CustomLoader transparent="true" />} */}
+         
           <Header steps={steps} current={current} setCurrent={setCurrent} />
-          {/* <ModalSuccess open={isModalOpen} form={form} /> */}
-          {/* <ModalFail open={modalfail} hideModal={hideModal} /> */}
           <Form
             noValidate
             form={form}
@@ -255,7 +258,7 @@ function Home() {
                 {current !== 1 && (
                   <button
                     className={classes.btnPrev}
-                    // style={{ color: brandProperties?.secondColor }}
+                    style={{ color: brandProperties?.secondColor }}
                     type="button"
                     onClick={() => prev()}
                   >
@@ -267,35 +270,16 @@ function Home() {
                 {current > 0 && current <= steps.length && (
                   <button
                     className={classes.btnNext}
-                    // style={{
-                    //   backgroundColor:
-                    //     current === 4 && subscribeEnabled === true
-                    //       ? "gray"
-                    //       : brandProperties?.secondColor,
-                    //   cursor:
-                    //     current === 4 && subscribeEnabled === true
-                    //       ? "not-allowed"
-                    //       : "pointer",
-                    //   padding:
-                    //     current === 3 || current === 4
-                    //       ? "1rem 1rem"
-                    //       : "1rem 2rem",
-                    // }}
-                    // disabled={current === 4 ? subscribeEnabled : false}
+                    style={{
+                      backgroundColor:"red"
+                        ,
+                      cursor:"pointer",
+                      padding: "1rem 2rem",
+                    }}
+                  
                     type="submit"
                   >
-                    Suivant
-                    {/* {current === 1
-                      ? "Suivant"
-                      : current === 2
-                      ? "Suivant"
-                      : current === 5
-                      ? "Confirmer la transaction"
-                      : current === 3
-                      ? "Souscrire"
-                      : `Je m’assure pour ${garantie?.tarif?.toFixed(
-                          2
-                        )} €/mois`} */}
+                   Suivant
                   </button>
                 )}
               </Col>
@@ -310,20 +294,7 @@ function Home() {
               window.location.reload();
             }}
           />
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {/* {current === 4 && (
-              <ExportDevis
-                sendEmail={sendEmail}
-                exporterDevis={exporterDevis}
-              />
-            )} */}
-          </div>
+         
         </div>
       </ConfigProvider>
     );

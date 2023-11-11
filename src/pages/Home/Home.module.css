@@ -1,0 +1,99 @@
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  .contentStyle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    margin-block: 2rem;
+  }
+  
+  .btnsHolder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 60%;
+  }
+  
+  .btnPrev {
+    background-color: #ffdddd;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.75rem;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+  }
+  .btnNext {
+    cursor: pointer;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.75rem;
+    text-align: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.2rem;
+  
+    margin-bottom: 3rem;
+  }
+  .stepper {
+    margin-top: 2rem;
+    width: 80%;
+  }
+  
+  
+  
+  @media (min-width: 992px) {
+    .stepper {
+      display: none;
+    }
+  }
+  .btnExporterDervis {
+    background-color: #f0f3f8;
+    cursor: pointer;
+    border: 1px solid #8caed6;
+    border-radius: 0.625rem;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+    color: #8caed6;
+  }
+  .btnEnvoyerDevis {
+    background-color: #91b1d8;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.625rem;
+    text-align: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 1rem 2rem;
+    margin-bottom: 3rem;
+    color: #fff;
+  }
+  .btnDevis {
+    background-color: #f0f3f8;
+    border-radius: 0.6875rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+  }
+  .warning{
+    background-color: #fffbe6 !important;
+    border: #ffe58f 2px solid;
+  }
+  

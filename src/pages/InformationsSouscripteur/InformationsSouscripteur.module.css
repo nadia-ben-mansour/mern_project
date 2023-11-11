@@ -1,0 +1,46 @@
+.label {
+    color: #757474;
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  .radio {
+    display: flex;
+    justify-content: start !important;
+    text-align: start;
+    border: 2px solid #d9d9d9;
+    border-radius: 0.5rem;
+    padding-block: 0.5rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+  }
+  .spaceRadio {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .politiqement_exposee {
+    display: flex;
+    justify-content: center !important;
+    background-color: #6284b71a;
+    border-radius: 0.5rem;
+    padding-inline: 1rem;
+    margin: 0 auto;
+    width: 50%;
+    align-items: center !important;
+  }
+  
+  
+  .buttonsAdd{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+    color: #024FA8;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.25)
+  }
+  
+  

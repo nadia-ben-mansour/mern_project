@@ -134,7 +134,7 @@ const InputComponent = (props) => {
             label={<label className={className}>{label}</label>}
           >
             <Input
-              disabled={name === "pays" || name === "dateEffet"}
+              disabled={ name === "dateEffet"}
               max={maxDate}
               min={minDate}
               // onChange={(e) => onChangeFunction(e, "input")}
@@ -154,14 +154,12 @@ const InputComponent = (props) => {
                 backgroundColor:
                   name === "dateEffet"
                     ? "#F2FAFF"
-                    : name === "pays"
-                    ? "#F2F3F4"
+                   
                     : "white",
                 border:
                   name === "dateEffet"
                     ? "2px solid #D2EEFF"
-                    : name === "pays"
-                    ? " 2px solid #E7E7E7"
+                    
                     : "",
                 textAlign: name === "dateEffet" ? "center" : "start",
                 color: name === "dateEffet" ? "#000" : "#000",

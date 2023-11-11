@@ -1,12 +1,7 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  font-family: 'Work Sans', sans-serif;
+  box-sizing: border-box;
+  font-weight: 500;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -14,56 +9,93 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+/* *{
+  font-family: Work Sans ;
+} */
 
 body {
   margin: 0;
+  overflow-x: hidden;
+}
+
+.ant-steps .ant-steps-item-container {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
+  width: fit-content;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.ant-steps
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title {
+  color: #c1e5fe;
+  font-weight: 600;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.ant-steps .ant-steps-item-finish .ant-steps-item-icon {
+  background-color: rgba(2, 79, 168, 0.4);
+  border-color: transparent !important;
+}
+
+.ant-steps
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title::after {
+  background-color: #c1e5fe;
+}
+.ant-switch.custom-ant-switch:not(.ant-switch-checked) .ant-switch-handle::before,
+.ant-switch.custom-ant-switch.ant-switch-unchecked:hover .ant-switch-handle::before {
+  background-color: #FF422C !important; 
+}
+.ant-switch.custom-ant-switch .ant-switch-inner .ant-switch-inner-unchecked {
+  color: #FF422C;
+  font-size: 0.875rem;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+.ant-switch .ant-switch-inner .ant-switch-inner-checked {
+  font-size: 0.875rem;
+  font-weight: 500;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@media (max-width: 800px) {
+  .ant-steps .ant-steps-item-container {
+    display: inline;
+    /* align-items: center; */
+  }
+  
+}
+.ant-modal .ant-modal-footer{
+  display: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.starClass>.starCol>div>.star> div >div >label{
+display:none}
+
+.ant-float-btn-primary .ant-float-btn-body{
+  background-color: #024FA8;
+}
+
+.ant-float-btn-primary .ant-float-btn-body:hover {
+  background-color: #024FA8
+}
+
+
+.ant-input {
+  font-weight: 500;
+}
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item,.ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
+  font-weight: 500;
+}
+.ant-form-vertical .ant-form-item-label, :where(.css-dev-only-do-not-override-hagume).ant-col-24.ant-form-item-label, :where(.css-dev-only-do-not-override-hagume).ant-col-xl-24.ant-form-item-label{
+  padding: 0;
+}
+
+.ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before{
+  margin-bottom: 0.5rem;
+}
+.ant-steps .ant-steps-item-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
