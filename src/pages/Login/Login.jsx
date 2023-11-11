@@ -5,11 +5,28 @@ import background from "../../assets/assurance.png"
 import InputComponent from '../../components/InputComponent/InputComponent'
 import GlobalContext from '../../contexts/GlobalContext'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 const Login = () => {
 const {form}=useContext(GlobalContext)
 const navigate=useNavigate()
 const navigateRegister=()=>{
   navigate("/")
+}
+const login =()=>{
+  // axios
+  // .post(`${import.meta.env.VITE_API_GEOPROD_URL}/login`, {
+  //   email:form.getFieldsValue()["souscripteur_email_login"],
+  //   password:form.getFieldsValue()["password_login"]
+  // })
+  // .then((response) => {
+    // if(response.data)
+    // {
+      navigate("/home")
+    // }
+    
+
+  // })
+  // .catch((err) => console.log(err));
 }
   return (
     <div>
@@ -24,7 +41,7 @@ const navigateRegister=()=>{
       </Row>
       <Row gutter={24} style={{marginTop:"3rem",marginLeft:"5rem"}}>
         <InputComponent
-          name="souscripteur_email"
+          name="souscripteur_email_login"
           required={true}
           messageRemplissage="Veuillez remplir ce champ."
           pattern={new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)}
@@ -41,7 +58,7 @@ const navigateRegister=()=>{
        
         <InputComponent
           from={form}
-          name="password"
+          name="password_login"
           required={true}
           size="large"
           type="password"
@@ -51,7 +68,7 @@ const navigateRegister=()=>{
           colxs={24}
         />
 <Col style={{display:"flex",justifyContent:"center",width:"100%"}}>
-        <Button className={classes.btn}>
+        <Button className={classes.btn} onClick={()=>{login()}}>
             Login
         </Button></Col>
        

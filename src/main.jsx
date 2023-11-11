@@ -6,6 +6,7 @@ import AppContext from "./contexts/AppContext";
 import Home from "./pages/Home/Home";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login"
+import InformationsSouscripteur from "./pages/InformationsSouscripteur/InformationsSouscripteur";
 
 const router = createBrowserRouter([
   {
@@ -18,10 +19,10 @@ const router = createBrowserRouter([
     element: <Login />,
     // errorElement: <NotFound />,
   },
-  // {
-  //   path: "/not-found",
-  //   element: <NotFound />,
-  // },
+  {
+    path: "/home",
+    element: <InformationsSouscripteur />,
+  },
 
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
